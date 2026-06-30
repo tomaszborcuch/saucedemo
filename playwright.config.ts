@@ -8,6 +8,7 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.BASE_URL ?? 'https://www.saucedemo.com',
+    testIdAttribute: 'data-test',
   },
 
   projects: [
