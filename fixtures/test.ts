@@ -1,14 +1,16 @@
 import { test as base, expect } from '@playwright/test';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { LoginPage } from '../pages/LoginPage';
 import { users } from '../test-data/users';
-import { CartPage } from '../pages/CartPage';
 
 type AppFixtures = {
   loginPage: LoginPage;
   inventoryPage: InventoryPage;
-  authenticatedInventoryPage: InventoryPage;
   cartPage: CartPage;
+  checkoutPage: CheckoutPage;
+  authenticatedInventoryPage: InventoryPage;
 };
 
 export const test = base.extend<AppFixtures>({
@@ -20,6 +22,14 @@ export const test = base.extend<AppFixtures>({
     await use(new InventoryPage(page));
   },
 
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
+  },
+
+  checkoutPage: async ({ page }, use) => {
+    await use(new CheckoutPage(page));
+  },
+
   authenticatedInventoryPage: async (
     { loginPage, inventoryPage },
     use,
@@ -29,9 +39,6 @@ export const test = base.extend<AppFixtures>({
     await inventoryPage.menuButton.waitFor({ state: 'visible' });
 
     await use(inventoryPage);
-  },
-  cartPage: async ({ page }, use) => {
-    await use(new CartPage(page));
   },
 });
 
