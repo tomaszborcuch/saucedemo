@@ -7,8 +7,4 @@ export const users = {
     username: 'locked_out_user',
     password: 'secret_sauce',
   },
-  problem: {
-    username: 'problem_user',
-    password: 'secret_sauce',
-  },
 } as const;

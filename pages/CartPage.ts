@@ -4,12 +4,14 @@ export class CartPage {
   readonly contents: Locator;
   readonly productCards: Locator;
   readonly productNames: Locator;
+  readonly cartBadge: Locator;
   readonly checkoutButton: Locator;
 
   constructor(private readonly page: Page) {
     this.contents = page.getByTestId('cart-contents-container');
     this.productCards = page.getByTestId('inventory-item');
     this.productNames = page.getByTestId('inventory-item-name');
+    this.cartBadge = page.getByTestId('shopping-cart-badge');
     this.checkoutButton = page.getByTestId('checkout');
   }
 

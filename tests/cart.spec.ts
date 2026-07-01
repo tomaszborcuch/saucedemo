@@ -57,6 +57,6 @@ test.describe('Products and cart', () => {
     await cartPage.removeProduct(products.bikeLight);
 
     await expect(cartPage.productCard(products.bikeLight)).toHaveCount(0);
-    await expect(inventoryPage.cartBadge).toHaveCount(0);
+    await expect(cartPage.cartBadge).toHaveCount(0);
   });
 });
